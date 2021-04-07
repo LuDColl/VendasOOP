@@ -11,6 +11,22 @@ public class Item {
         this.quantidade = quantidade;
     }
 
+    public String getCodigo() {
+        return produto.getCodigo();
+    }
+
+    public String getProduto() {
+        return produto.getProduto();
+    }
+
+    public float getPreco() {
+        return produto.getPreco();
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
     public void setImposto(float imposto) {
         this.imposto = imposto;
     }

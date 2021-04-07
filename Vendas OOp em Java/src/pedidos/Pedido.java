@@ -52,15 +52,16 @@ public class Pedido {
             IllegalArgumentException, InvocationTargetException {
         Method getValorItem;
         float valor = 0;
-        for (Item itemPedido : lista) {
-            getValorItem = itemPedido.getClass().getMethod(nomeMetodo);
-            valor = (float) getValorItem.invoke(itemPedido);
+        for (Item item : lista) {
+            getValorItem = item.getClass().getMethod(nomeMetodo);
+            valor += (float) getValorItem.invoke(item);
         }
         return valor;
     }
 
-    public void print() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        System.out.println("Informações do Pedido.");
+    public void print() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException {
+        System.out.println("    Informações do Pedido.");
         System.out.println("Código: " + codPedido);
         System.out.println("Data:: " + data);
         System.out.println("Valor: " + getValorPedido());
@@ -68,7 +69,7 @@ public class Pedido {
         System.out.println("Valor Total: " + getValorTotal());
         System.out.println("Valor Líquido: " + getValorLiquido());
         System.out.println();
-        System.out.println("Informações do Cliente.");
+        System.out.println("    Informações do Cliente.");
         System.out.println("Código: " + cliente.getCodigo());
         System.out.println("Nome: " + cliente.getNome());
         System.out.println("UF: " + cliente.getUf());
@@ -76,5 +77,22 @@ public class Pedido {
         System.out.println("Classificação: " + cliente.getClassificacao());
         System.out.println("Imposto: " + cliente.getImposto());
         System.out.println("Desconto: " + cliente.getDesconto());
+        System.out.println();
+        System.out.println("    Lista dos Itens do Pedido.");
+        System.out.println();
+        for (Item item : lista) {
+            System.out.println("Código: " + item.getCodigo());
+            System.out.println("Produto: " + item.getProduto());
+            System.out.println("Preço: " + item.getPreco());
+            System.out.println("Preço do Imposto: " + item.getPrecoImposto());
+            System.out.println("Preço Total: " + item.getPrecoTotal());
+            System.out.println("Preço Líquido: " + item.getPrecoLiquido());
+            System.out.println("Quantidade: " + item.getQuantidade());
+            System.out.println("Valor: " + item.getValor());
+            System.out.println("Valor do Imposto: " + item.getValorImposto());
+            System.out.println("Valor Total: " + item.getValorTotal());
+            System.out.println("Valor Líquido: " + item.getValorLiquido());
+            System.out.println();
+        }
     }
 }

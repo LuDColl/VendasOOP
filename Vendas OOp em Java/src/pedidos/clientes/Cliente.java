@@ -24,7 +24,7 @@ public class Cliente {
         return uf;
     }
 
-    public float getCodigoClassificacao() {
+    public int getCodigoClassificacao() {
         return classificacao.getCodigo();
     }
 
